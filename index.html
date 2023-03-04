@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>裏垢調査サイトコラージュアプリ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    </head>
+    <body>
+        <div class="head">
+            <h1>裏垢調査会社コラージュアプリ</h1>
+            <h2>最近何かと話題の「裏垢調査会社」のニュース映像のコラージュを作成できます。</h2>
+        </div>
+
+        <div>
+          <nav>
+            <div class="nav-wrapper">
+              <ul class="hide-on-med-and-down">
+                <li>
+                  <a href="/css/bootstrap/">Bootstrap</a>
+                </li>
+                <li>
+                  <a href="/css/bulma/">Bulma</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
+        <div>
+            <!-- <div class="container red lighten-5">Container</div> -->
+            <a class="dropdown-trigger btn" href="#" data-target="framework">Framework</a>
+            <ul id="framework" class="dropdown-content">
+                <li>
+                  <a href="/css/bootstrap/">Bootstrap</a>
+                </li>
+                <li>
+                  <a href="/css/bulma/">Bulma</a>
+                </li>
+              </ul>
+        </div>
+
+        <div>
+          <label>口座種別</label>
+          <select class="browser-default">
+            <option value="1">普通預金</option>
+            <option value="2">当座預金</option>
+          </select>
+        </div>
+
+        <div>
+          <form name="sendform" action="">
+            <input type="file" id="fileInput">
+            <input type="text" name="text" value="Test">
+            <!-- <input type="text" name="text" value="Test"> -->
+            <button id="send" class="input">合成する</button>
+          </form>
+        </div>
+
+        <div>
+          <form id="myForm">
+            <input type="text" name="firstName">
+            <input type="text" name="lastName">
+            <input type="email" name="email">
+            <button type="submit">Submit</button>
+          </form>
+          
+          
+        </div>
+
+        <script src="uraka.js"> </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        </body>
+</html>

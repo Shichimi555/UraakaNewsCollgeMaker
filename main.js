@@ -1,18 +1,18 @@
 // buttonをクリックするとアラートを出す
-const button = document.getElementById('send');
+// const button = document.getElementById('send');
 // button.addEventListener("click", function() {
 //     alert("hello");
 // })
 
 
-// fileInput.addEventListener('change', (event) => {
-button.addEventListener("click",function(){
+// // fileInput.addEventListener('change', (event) => {
+// button.addEventListener("click",function(){
 
-    const formElements = document.forms.sendform;
-    // alert(formElements);
-    formElements.text.value = '';
-    console.log('Text: ', formElements.text.value);
-    alert("sus")
+//     const formElements = document.forms.sendform;
+//     // alert(formElements);
+//     formElements.text.value = '';
+//     console.log('Text: ', formElements.text.value);
+//     alert("sus")
 
 
 //     const file = event.target.files[0];
@@ -44,7 +44,7 @@ button.addEventListener("click",function(){
 //         });
 
 //   };
-});
+// });
 
 
 // function submitForm() {
@@ -57,7 +57,29 @@ button.addEventListener("click",function(){
 //     console.log(firstName, lastName, email);
 //   }
 
-var form = document.getElementById('myForm');
+// var form = document.getElementById('myForm');
+
+// form.addEventListener('submit', function(event) {
+//   event.preventDefault(); // フォームが自動的に送信されるのを防止する
+  
+//   var firstName = form.elements['firstName'].value;
+//   var lastName = form.elements['lastName'].value;
+//   var email = form.elements['email'].value;
+//   // var InputFile = form.files[1];
+//   let files = form.files;
+
+//   for(let i = 0 ; i < files.length ; i++){
+//       console.log(files[i].name);
+//   }
+  
+//   // 取得した値を使って何らかの処理を行う
+//   console.log(form.elements.value);
+//   console.log(firstName, lastName, email);
+// });
+
+
+
+var form = document.getElementById('fileform');
 
 form.addEventListener('submit', function(event) {
   event.preventDefault(); // フォームが自動的に送信されるのを防止する
@@ -66,7 +88,29 @@ form.addEventListener('submit', function(event) {
   var lastName = form.elements['lastName'].value;
   var email = form.elements['email'].value;
   
-  // 取得した値を使って何らかの処理を行う
-  console.log(firstName, lastName, email);
+  var fileInput = form.elements['fileInput'];
+  var file = fileInput.files[0]; // 選択されたファイルを取得する
+  var filer = fileInput.files;
+
+  var reader = new FileReader();
+  reader.readAsDataURL(file); // ファイルを読み込む
+  
+  reader.onload = function() {
+    var fileContent = reader.result;
+    // ファイルの内容を使って何らかの処理を行う
+    console.log(firstName, lastName, email, fileContent);
+
+    for(let i = 0 ; i < filer.length ; i++){
+      console.log((i + 1) + '番目のファイル');
+      console.log('name: ' + filer[i].name);
+      console.log('size: ' + filer[i].size);
+      console.log('type: ' + filer[i].type);
+    }
+    console.log(filer[0].name)
+    console.log(filer)
+    var type = filer[0].type
+    if (type=!"image/")
+  };
 });
+
 

@@ -27,8 +27,8 @@
           </nav>
         </div>
 
-        <div>
-            <!-- <div class="container red lighten-5">Container</div> -->
+        <!-- <div>
+             <div class="container red lighten-5">Container</div> 
             <a class="dropdown-trigger btn" href="#" data-target="framework">Framework</a>
             <ul id="framework" class="dropdown-content">
                 <li>
@@ -38,37 +38,46 @@
                   <a href="/css/bulma/">Bulma</a>
                 </li>
               </ul>
-        </div>
+        </div> -->
 
-        <div>
+        <!-- <div>
           <label>口座種別</label>
           <select class="browser-default">
             <option value="1">普通預金</option>
             <option value="2">当座預金</option>
           </select>
-        </div>
+        </div> -->
 
-        <div>
+        <!-- <div>
           <form name="sendform" action="">
             <input type="file" id="fileInput">
             <input type="text" name="text" value="Test">
-            <!-- <input type="text" name="text" value="Test"> -->
+            <input type="text" name="text" value="Test"> 
             <button id="send" class="input">合成する</button>
           </form>
-        </div>
+        </div> -->
 
-        <div>
+        <!-- <div>
           <form id="myForm">
             <input type="text" name="firstName">
             <input type="text" name="lastName">
             <input type="email" name="email">
-            <button type="submit">Submit</button>
+            <input type="file" name="InputFile" accept="image/*">
+            <button type="submit" class="input">Submit</button>
+          </form> -->
+          
+          <form id="fileform">
+            <input type="text" name="firstName">
+            <input type="text" name="lastName">
+            <input type="email" name="email">
+            <input type="file" name="fileInput" accept="image/*" class="input">
+            <button type="submit" class="input">Submit</button>
           </form>
           
           
         </div>
 
-        <script src="uraka.js"> </script>
+        <script src="main.js"> </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         </body>
 </html>

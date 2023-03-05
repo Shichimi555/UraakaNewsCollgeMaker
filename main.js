@@ -58,19 +58,17 @@ form.addEventListener('submit', function(event) {
   
   reader.onload = function() {
     var fileContent = reader.result;
+    var type = filer[0].type;
+
     // ファイルの内容を使って何らかの処理を行う
     console.log(firstName, lastName, email, fileContent);
 
-    for(let i = 0 ; i < filer.length ; i++){
-      console.log((i + 1) + '番目のファイル');
-      console.log('name: ' + filer[i].name);
-      console.log('size: ' + filer[i].size);
-      console.log('type: ' + filer[i].type);
-    }
-    console.log(filer[0].name);
-    // console.log(filer);
-
+    var name = filer[0].name;
+    var size = filer[0].size;
     var type = filer[0].type;
+
+    var items = [name,size,type];
+
 
     if (type=="image/png"){
       console.log("png");
@@ -82,24 +80,34 @@ form.addEventListener('submit', function(event) {
     }
 
     var imgData = fileContent;
-
     var img = new Image();
+    // var text = type; // 表示したい文字列
+
 
     img.onload = function() {
       try{
-        var canvas = document.getElementById('preview');
+        var result_type = document.getElementById('type');
+        result_type.remove();
+        var canvas = document.getElementById('preview'); //もともとの画像を削除
         canvas.remove();
+      }catch(Exception){
+        console.log(e)
+        console.log("エラーが発生しました。もう一度お試しください。");
+      }finally{
+        var div = document.createElement("div"); // div要素を作成
 
-        var canvas = document.createElement('canvas');
-        canvas.width = img.width;
-        canvas.height = img.height;
-        canvas.id = "preview";
+        
+        for(let i = 0 ; i < items.length ; i++){
+          var p = document.createElement("p");
+          console.log(items[i]);
+          p.textContent = items[i]; // div要素にテキストを挿入
+          p.id = 'pre';
+          div.appendChild(p);
+        }
 
-        var ctx = canvas.getContext('2d');
-        ctx.drawImage(img, 0, 0);
+        div.id = 'details'
+        document.body.appendChild(div); // body要素の子要素としてdiv要素を追加
 
-        document.body.appendChild(canvas);
-      }catch(e){
         var canvas = document.createElement('canvas');
         canvas.width = img.width;
         canvas.height = img.height;

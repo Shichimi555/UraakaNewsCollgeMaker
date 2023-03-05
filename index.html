@@ -2,9 +2,7 @@
     <head>
         <title>裏垢調査サイトコラージュアプリ</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     </head>
     <body>
         <div class="head">
@@ -12,28 +10,15 @@
             <h2>最近何かと話題の「裏垢調査会社」のニュース映像のコラージュを作成できます。</h2>
         </div>
 
-        <div>
-          <nav>
-            <div class="nav-wrapper">
-              <ul class="hide-on-med-and-down">
-                <li>
-                  <a href="/css/bootstrap/">Bootstrap</a>
-                </li>
-                <li>
-                  <a href="/css/bulma/">Bulma</a>
-                </li>
-              </ul>
+        <div class="field">
+          <!-- デバッグでいちいち入力面倒なのでvalueで指定中 -->
+          <form id="fileform" class="field">
+            <div class="control">
+              <input type="text" class="input" name="firstName" value="" placeholder="Text input">
             </div>
-          </nav>
-        </div>
-
-        
-          
-          <form id="fileform">
-            <input type="text" name="firstName">
-            <input type="text" name="lastName">
-            <input type="email" name="email">
-            <input type="file" name="fileInput" accept="image/*" class="input">
+            <input type="text" class="input" name="lastName" value="Ryo" class="input">
+            <input type="email" class="input" name="email" value="Yamryo0918@kanekase.com">
+            <input type="file" class="input" name="fileInput" accept="image/*">
             <button type="submit" class="input">Submit</button>
           </form>
           

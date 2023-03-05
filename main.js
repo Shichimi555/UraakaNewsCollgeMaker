@@ -106,11 +106,49 @@ form.addEventListener('submit', function(event) {
       console.log('size: ' + filer[i].size);
       console.log('type: ' + filer[i].type);
     }
-    console.log(filer[0].name)
-    console.log(filer)
-    var type = filer[0].type
-    if (type=!"image/")
+    console.log(filer[0].name);
+    // console.log(filer);
+
+    var type = filer[0].type;
+
+    if (type=="image/png"){
+      console.log("png");
+    }else if (type=="image/jpeg"){
+      console.log("jpeg")
+    }else{
+      console.log("error");
+      alert("pngかjpgファイルを指定してください")
+    }
+
+    var imgData = fileContent;
+
+    var img = new Image();
+
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+
+      var ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0);
+
+      document.body.appendChild(canvas); // 画像を表示する
+    };
+
+    img.src = imgData;
+
   };
 });
 
+
+// //サンプルコード2
+// var num = 3;//判定に使う数字
+// var special = true; //スペシャルゲストかどうかを判断するフラグ
+// if (num == 6 ||special == true){
+//     console.log("おめでとうございます。あたりです。");
+//         //numが6の時またはspecialがtrueの時「あたり」を表示する。
+// }else{
+//     console.log("はずれです。");
+//         //ifの条件に当てはまらない時に「はずれ」を表示する。
+// }
 

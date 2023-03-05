@@ -1,10 +1,3 @@
-// buttonをクリックするとアラートを出す
-// const button = document.getElementById('send');
-// button.addEventListener("click", function() {
-//     alert("hello");
-// })
-
-
 // // fileInput.addEventListener('change', (event) => {
 // button.addEventListener("click",function(){
 
@@ -45,38 +38,6 @@
 
 //   };
 // });
-
-
-// function submitForm() {
-//     var form = document.getElementById('myForm');
-//     var firstName = form.elements['firstName'].value;
-//     var lastName = form.elements['lastName'].value;
-//     var email = form.elements['email'].value;
-    
-//     // 取得した値を使って何らかの処理を行う
-//     console.log(firstName, lastName, email);
-//   }
-
-// var form = document.getElementById('myForm');
-
-// form.addEventListener('submit', function(event) {
-//   event.preventDefault(); // フォームが自動的に送信されるのを防止する
-  
-//   var firstName = form.elements['firstName'].value;
-//   var lastName = form.elements['lastName'].value;
-//   var email = form.elements['email'].value;
-//   // var InputFile = form.files[1];
-//   let files = form.files;
-
-//   for(let i = 0 ; i < files.length ; i++){
-//       console.log(files[i].name);
-//   }
-  
-//   // 取得した値を使って何らかの処理を行う
-//   console.log(form.elements.value);
-//   console.log(firstName, lastName, email);
-// });
-
 
 
 var form = document.getElementById('fileform');
@@ -125,14 +86,32 @@ form.addEventListener('submit', function(event) {
     var img = new Image();
 
     img.onload = function() {
-      var canvas = document.createElement('canvas');
-      canvas.width = img.width;
-      canvas.height = img.height;
+      try{
+        var canvas = document.getElementById('preview');
+        canvas.remove();
 
-      var ctx = canvas.getContext('2d');
-      ctx.drawImage(img, 0, 0);
+        var canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        canvas.id = "preview";
 
-      document.body.appendChild(canvas); // 画像を表示する
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+
+        document.body.appendChild(canvas);
+      }catch(e){
+        var canvas = document.createElement('canvas');
+        canvas.width = img.width;
+        canvas.height = img.height;
+        canvas.id = "preview";
+
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+
+        document.body.appendChild(canvas); // 画像を表示する
+      }
+
+      
     };
 
     img.src = imgData;
@@ -140,15 +119,4 @@ form.addEventListener('submit', function(event) {
   };
 });
 
-
-// //サンプルコード2
-// var num = 3;//判定に使う数字
-// var special = true; //スペシャルゲストかどうかを判断するフラグ
-// if (num == 6 ||special == true){
-//     console.log("おめでとうございます。あたりです。");
-//         //numが6の時またはspecialがtrueの時「あたり」を表示する。
-// }else{
-//     console.log("はずれです。");
-//         //ifの条件に当てはまらない時に「はずれ」を表示する。
-// }
 

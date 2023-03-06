@@ -81,32 +81,35 @@ form.addEventListener('submit', function(event) {
 
     var imgData = fileContent;
     var img = new Image();
-    // var text = type; // 表示したい文字列
 
 
     img.onload = function() {
       try{
-        var result_type = document.getElementById('details');
-        result_type.remove();
+        // var result_type = document.getElementById('details');
+        // result_type.remove();
         var canvas = document.getElementById('preview'); //もともとの画像を削除
         canvas.remove();
+        var background = document.getElementById('created')
+        background.remove()
       }catch(Exception){
         console.log(e)
-        console.log("エラーが発生しました。もう一度お試しください。");
+        console.log("新規");
       }finally{
         var div = document.createElement("div"); // div要素を作成
 
-        
-        for(let i = 0 ; i < items.length ; i++){
-          var p = document.createElement("p");
-          console.log(items[i]);
-          p.textContent = items[i]; // div要素にテキストを挿入
-          p.id = 'pre';
-          div.appendChild(p);
-        }
 
-        div.id = 'details'
-        document.body.appendChild(div); // body要素の子要素としてdiv要素を追加
+        
+        
+        // for(let i = 0 ; i < items.length ; i++){
+        //   var p = document.createElement("p");
+        //   console.log(items[i]);
+        //   p.textContent = items[i]; // div要素にテキストを挿入
+        //   p.id = 'pre';
+        //   div.appendChild(p);
+        // }
+
+        // div.id = 'details'
+        // document.body.appendChild(div); // body要素の子要素としてdiv要素を追加
 
         var canvas = document.createElement('canvas');
         canvas.width = img.width;

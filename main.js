@@ -86,7 +86,7 @@ form.addEventListener('submit', function(event) {
 
     img.onload = function() {
       try{
-        var result_type = document.getElementById('type');
+        var result_type = document.getElementById('details');
         result_type.remove();
         var canvas = document.getElementById('preview'); //もともとの画像を削除
         canvas.remove();
@@ -124,7 +124,39 @@ form.addEventListener('submit', function(event) {
 
     img.src = imgData;
 
+    
+
   };
 });
 
 
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault(); // フォームが自動的に送信されるのを防止する
+  
+  try{
+    var canvas = document.getElementById('created')
+    canvas.remove()
+  }catch(e){
+    console.log('新規作成')
+  }
+
+  var backgroundImage = new Image();
+  backgroundImage.src = "background1.png";
+
+  var image = new Image();
+  image.src = "background2.png";
+
+  backgroundImage.onload = function() {
+    var canvas = document.createElement("canvas");
+    canvas.width = backgroundImage.width;
+    canvas.height = backgroundImage.height;
+    canvas.id = 'created'
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(backgroundImage, 0, 0);
+    var x = 10;
+    var y = 10;
+    ctx.drawImage(image, x, y);
+    document.body.appendChild(canvas);
+  };
+});

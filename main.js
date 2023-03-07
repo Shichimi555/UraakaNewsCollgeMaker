@@ -29,14 +29,16 @@ form.addEventListener('submit', function(event) {
     var imgData = fileContent;
 
     try{
-      var canvas = document.getElementById('created')
-      canvas.remove()
+      var canvas = document.getElementById('created');
+      canvas.remove();
     }catch(e){
-      console.log('新規作成')
+      // console.log('新規作成')
+      ;
     }
 
     var backgroundImage = new Image();
     backgroundImage.src = "background1.png";
+    // backgroundImage.width = 'auto';
 
     var image = new Image();
     image.src = fileContent;
@@ -45,7 +47,9 @@ form.addEventListener('submit', function(event) {
       var canvas = document.createElement("canvas");
       canvas.width = backgroundImage.width;
       canvas.height = backgroundImage.height;
-      canvas.id = 'created'
+      canvas.id = 'created';
+      // canvas.style.width = '100%';
+      // canvas.style.height = '50%';
       var ctx = canvas.getContext("2d");
       ctx.drawImage(backgroundImage, 0, 0);
       var x = 10;
@@ -53,6 +57,7 @@ form.addEventListener('submit', function(event) {
 
       try{
       ctx.drawImage(image, x, y);
+      
       }catch(error){
         if (error instanceof DOMException){
         console.log(error);
@@ -104,11 +109,44 @@ buttons.addEventListener('submit', function(event){
     }catch(e){
       alert('画像がありません');
     }
-    return;
+    try{
+      var alreadyButton = document.getElementById('download');
+      alreadyButton.parentNode.removeChild(alreadyButton);
+    }catch(e){
+      ; // 無視
+    }
   }else{
-    console.log('download');
-  }
+    alert('調整中です。画像を右クリックか長押しして画像を保存してください。');
+    
+    // try{
+    //   const downloadButton = document.querySelector('#download');
 
+    //   downloadButton.addEventListener('click', function() {
+    //     // ダウンロード処理
+    //     const canvas = document.getElementById("created");
+    //     const tempCanvas = document.createElement('canvas');
+    //     tempCanvas.width = canvas.width;
+    //     tempCanvas.height = canvas.height;
+      
+    //     // 新しいcanvasに元のcanvasの内容をコピー
+    //     const tempCtx = tempCanvas.getContext('2d');
+    //     tempCtx.drawImage(canvas, 0, 0);
+      
+    //     // toDataURL()を使って新しいcanvasのデータを取得
+    //     const dataURL = tempCanvas.toDataURL();  
+    //     const link = document.createElement("a");
+
+    //     a.href = dataURL;
+    //     a.download = "canvas_image.png";
+    //     a.click();
+    //   });
+      
+
+    // }catch(e){
+    // console.log('failed:',e);
+    // }
+  }
+  return;
   
 });
 

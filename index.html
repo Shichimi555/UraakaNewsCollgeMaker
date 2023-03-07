@@ -3,6 +3,7 @@
         <title>裏垢調査サイトコラージュアプリ</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+        <!-- <link rel="stylesheet" href="index.css"> -->
     </head>
     <body>
         <div class="head">
@@ -11,12 +12,14 @@
         </div>
 
         <div class="field">
-          <!-- デバッグでいちいち入力面倒なのでvalueで指定中 -->
           <form id="fileform" class="field">
-            <input type="file" class="input" name="fileInput" accept="image/*">
-            <button type="submit" class="input">Create</button>
+            <input type="file" class="input" name="fileInput" accept="image/*" id="InputFile" value="">
+            <button type="submit" class="input" id="create">Create</button>
           </form>
-          
+
+          <form id="buttonform" class="buttonform">
+            <button type="submit" class="input" id="delete">Delete</button>
+          </form>          
           
         </div>
 

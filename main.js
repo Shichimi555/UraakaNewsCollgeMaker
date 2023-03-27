@@ -38,7 +38,7 @@ form.addEventListener('submit', function(event) {
 
     var backgroundImage = new Image();
     backgroundImage.src = "background1.png";
-    // backgroundImage.width = 'auto';
+
 
     var image = new Image();
     image.src = fileContent;
@@ -48,10 +48,12 @@ form.addEventListener('submit', function(event) {
       canvas.width = backgroundImage.width;
       canvas.height = backgroundImage.height;
       canvas.id = 'created';
-      // canvas.style.width = '100%';
-      // canvas.style.height = '50%';
+      canvas.style.width = 'auto';
+      canvas.style.height = '60%';
       var ctx = canvas.getContext("2d");
+      const contentWidth = document.documentElement.clientWidth;
       ctx.drawImage(backgroundImage, 0, 0);
+
       var x = 10;
       var y = 10;
 
@@ -118,33 +120,7 @@ buttons.addEventListener('submit', function(event){
   }else{
     alert('調整中です。画像を右クリックか長押しして画像を保存してください。');
     
-    // try{
-    //   const downloadButton = document.querySelector('#download');
-
-    //   downloadButton.addEventListener('click', function() {
-    //     // ダウンロード処理
-    //     const canvas = document.getElementById("created");
-    //     const tempCanvas = document.createElement('canvas');
-    //     tempCanvas.width = canvas.width;
-    //     tempCanvas.height = canvas.height;
-      
-    //     // 新しいcanvasに元のcanvasの内容をコピー
-    //     const tempCtx = tempCanvas.getContext('2d');
-    //     tempCtx.drawImage(canvas, 0, 0);
-      
-    //     // toDataURL()を使って新しいcanvasのデータを取得
-    //     const dataURL = tempCanvas.toDataURL();  
-    //     const link = document.createElement("a");
-
-    //     a.href = dataURL;
-    //     a.download = "canvas_image.png";
-    //     a.click();
-    //   });
-      
-
-    // }catch(e){
-    // console.log('failed:',e);
-    // }
+    
   }
   return;
   

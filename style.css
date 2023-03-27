@@ -1,0 +1,17 @@
+canvas {
+  position: relative;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+div.field{
+  text-align: center;
+  margin: 0 auto;
+  width: 80%;
+}
+
+button, input{
+  border-radius: 20px !important;
+  margin: 2px;
+}

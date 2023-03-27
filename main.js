@@ -41,6 +41,7 @@ form.addEventListener('submit', function(event) {
 
 
     var image = new Image();
+    image.crossOrigin = "anonymous"; 
     image.src = fileContent;
 
     backgroundImage.onload = function() {
@@ -118,8 +119,34 @@ buttons.addEventListener('submit', function(event){
       ; // 無視
     }
   }else{
-    alert('調整中です。画像を右クリックか長押しして画像を保存してください。');
+    // alert('調整中です。画像を右クリックか長押しして画像を保存してください。');
+    // 元のcanvas要素を取得する
+    const originalCanvas = document.getElementById('created');
+    // 新しいcanvas要素を作成する
+    const copiedCanvas = document.createElement('canvas');
+    // 新しいcanvasのサイズを設定する
+    copiedCanvas.width = originalCanvas.width;
+    copiedCanvas.height = originalCanvas.height;
+
+    // コンテキストを取得する
+    const ctx = copiedCanvas.getContext('2d');
     
+    // 元のcanvasの内容を新しいcanvasにコピーする
+    ctx.drawImage(originalCanvas, 0, 0);
+
+    // ダウンロードボタンをクリックしたら画像をダウンロードする 
+    // canvasのデータURLを取得する
+    const dataURL = copiedCanvas.toDataURL('image/png');
+    // ダウンロード用のリンクを作成する
+    const downloadLink = document.createElement('a');
+    downloadLink.href = dataURL;
+    downloadLink.download = 'image.png';
+    // リンクをクリックしてダウンロードを実行する
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    
+
     
   }
   return;
